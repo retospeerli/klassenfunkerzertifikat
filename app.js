@@ -1,4 +1,4 @@
-const STORAGE_KEY = "funkerschule15_final_cert_v1";
+const STORAGE_KEY = "funkerschule15_cert_bg_v1";
 
 // Interne Passwörter
 const PASSWORD_1 = "Speerli";
@@ -241,11 +241,7 @@ function getSignalFlagSVG(letter) {
 }
 
 function svgOpen() {
-  return '<svg viewBox="0 0 38 58" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">';
-}
-
-function svgPole() {
-  return '<rect x="1" y="0" width="2" height="58" fill="#444"/>';
+  return '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">';
 }
 
 function svgClose() {
@@ -253,203 +249,245 @@ function svgClose() {
 }
 
 function svgA() {
-  return `${svgOpen()}${svgPole()}
-    <path d="M3 4H35L19 29L35 54H3Z" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
-    <path d="M19 29L35 4V54Z" fill="#1d62ff"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#ffffff"/>
+    <polygon points="50,0 100,0 100,100 50,100 72,50" fill="#0b39c7"/>
   ${svgClose()}`;
 }
 
 function svgB() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#d81f26" stroke="#000" stroke-width="1.2"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#ff1d12"/>
+    <polygon points="100,0 78,50 100,100" fill="#ffffff"/>
   ${svgClose()}`;
 }
 
 function svgC() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#1d62ff" stroke="#000" stroke-width="1.2"/>
-    <rect x="11" y="4" width="16" height="50" fill="#ffffff"/>
-    <rect x="3" y="17" width="32" height="24" fill="#ffffff"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#ffffff"/>
+    <rect y="0" width="100" height="20" fill="#173bbd"/>
+    <rect y="20" width="100" height="20" fill="#ffffff"/>
+    <rect y="40" width="100" height="20" fill="#ff2222"/>
+    <rect y="60" width="100" height="20" fill="#ffffff"/>
+    <rect y="80" width="100" height="20" fill="#173bbd"/>
   ${svgClose()}`;
 }
 
 function svgD() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#f1d41a" stroke="#000" stroke-width="1.2"/>
-    <rect x="19" y="4" width="16" height="50" fill="#1d62ff"/>
+  return `${svgOpen()}
+    <rect width="100" height="50" fill="#163ab8"/>
+    <rect y="50" width="100" height="50" fill="#f0dd19"/>
   ${svgClose()}`;
 }
 
 function svgE() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#1d62ff" stroke="#000" stroke-width="1.2"/>
-    <path d="M3 4L35 54M35 4L3 54" stroke="#d81f26" stroke-width="6"/>
+  return `${svgOpen()}
+    <rect width="100" height="50" fill="#173bbd"/>
+    <rect y="50" width="100" height="50" fill="#ff2323"/>
   ${svgClose()}`;
 }
 
 function svgF() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
-    <path d="M3 4L35 54M35 4L3 54" stroke="#d81f26" stroke-width="6"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#ffffff"/>
+    <polygon points="50,0 100,50 50,100 0,50" fill="#ff2323"/>
   ${svgClose()}`;
 }
 
 function svgG() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#f1d41a" stroke="#000" stroke-width="1.2"/>
-    <rect x="3" y="4" width="16" height="25" fill="#1d62ff"/>
-    <rect x="19" y="29" width="16" height="25" fill="#1d62ff"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#f0dd19"/>
+    <rect x="16" width="16" height="100" fill="#173bbd"/>
+    <rect x="42" width="16" height="100" fill="#173bbd"/>
+    <rect x="68" width="16" height="100" fill="#173bbd"/>
   ${svgClose()}`;
 }
 
 function svgH() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
-    <rect x="19" y="4" width="16" height="25" fill="#d81f26"/>
-    <rect x="3" y="29" width="16" height="25" fill="#d81f26"/>
+  return `${svgOpen()}
+    <rect width="50" height="100" fill="#ffffff"/>
+    <rect x="50" width="50" height="100" fill="#ff2323"/>
   ${svgClose()}`;
 }
 
 function svgI() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#f1d41a" stroke="#000" stroke-width="1.2"/>
-    <circle cx="19" cy="29" r="9" fill="#000"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#f0dd19"/>
+    <circle cx="50" cy="50" r="22" fill="#111111"/>
   ${svgClose()}`;
 }
 
 function svgJ() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#1d62ff" stroke="#000" stroke-width="1.2"/>
-    <rect x="3" y="4" width="16" height="25" fill="#ffffff"/>
-    <rect x="19" y="29" width="16" height="25" fill="#ffffff"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#ffffff"/>
+    <rect y="0" width="100" height="25" fill="#173bbd"/>
+    <rect y="75" width="100" height="25" fill="#173bbd"/>
   ${svgClose()}`;
 }
 
 function svgK() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#f1d41a" stroke="#000" stroke-width="1.2"/>
-    <rect x="3" y="4" width="16" height="25" fill="#1d62ff"/>
-    <rect x="19" y="29" width="16" height="25" fill="#1d62ff"/>
+  return `${svgOpen()}
+    <rect width="50" height="100" fill="#f0dd19"/>
+    <rect x="50" width="50" height="100" fill="#173bbd"/>
   ${svgClose()}`;
 }
 
 function svgL() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#f1d41a" stroke="#000" stroke-width="1.2"/>
-    <path d="M3 4L35 54M35 4L3 54" stroke="#000" stroke-width="5"/>
+  return `${svgOpen()}
+    <rect width="50" height="50" fill="#f0dd19"/>
+    <rect x="50" width="50" height="50" fill="#111111"/>
+    <rect y="50" width="50" height="50" fill="#111111"/>
+    <rect x="50" y="50" width="50" height="50" fill="#f0dd19"/>
   ${svgClose()}`;
 }
 
 function svgM() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#1d62ff" stroke="#000" stroke-width="1.2"/>
-    <path d="M3 4L35 54M35 4L3 54" stroke="#ffffff" stroke-width="6"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#173bbd"/>
+    <polygon points="0,0 20,0 100,80 100,100 80,100 0,20" fill="#ffffff"/>
+    <polygon points="100,0 80,0 0,80 0,100 20,100 100,20" fill="#ffffff"/>
   ${svgClose()}`;
 }
 
 function svgN() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
-    <path d="M3 4L35 54M35 4L3 54" stroke="#1d62ff" stroke-width="6"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#ffffff"/>
+    <rect x="20" y="0" width="20" height="20" fill="#173bbd"/>
+    <rect x="60" y="0" width="20" height="20" fill="#173bbd"/>
+    <rect x="0" y="20" width="20" height="20" fill="#173bbd"/>
+    <rect x="40" y="20" width="20" height="20" fill="#173bbd"/>
+    <rect x="80" y="20" width="20" height="20" fill="#173bbd"/>
+    <rect x="20" y="40" width="20" height="20" fill="#173bbd"/>
+    <rect x="60" y="40" width="20" height="20" fill="#173bbd"/>
+    <rect x="0" y="60" width="20" height="20" fill="#173bbd"/>
+    <rect x="40" y="60" width="20" height="20" fill="#173bbd"/>
+    <rect x="80" y="60" width="20" height="20" fill="#173bbd"/>
+    <rect x="20" y="80" width="20" height="20" fill="#173bbd"/>
+    <rect x="60" y="80" width="20" height="20" fill="#173bbd"/>
   ${svgClose()}`;
 }
 
 function svgO() {
-  return `${svgOpen()}${svgPole()}
-    <path d="M3 4H35L19 29L35 54H3L19 29Z" fill="#f1d41a" stroke="#000" stroke-width="1.2"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#f0dd19"/>
+    <polygon points="0,0 100,100 100,0" fill="#ff2323"/>
   ${svgClose()}`;
 }
 
 function svgP() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#1d62ff" stroke="#000" stroke-width="1.2"/>
-    <rect x="3" y="4" width="16" height="25" fill="#ffffff"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#173bbd"/>
+    <rect x="20" y="20" width="60" height="60" fill="#ffffff"/>
   ${svgClose()}`;
 }
 
 function svgQ() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#f1d41a" stroke="#000" stroke-width="1.2"/>
-    <rect x="3" y="4" width="16" height="25" fill="#000"/>
-    <rect x="19" y="29" width="16" height="25" fill="#000"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#f0dd19"/>
   ${svgClose()}`;
 }
 
 function svgR() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#d81f26" stroke="#000" stroke-width="1.2"/>
-    <path d="M3 4L35 54M35 4L3 54" stroke="#f1d41a" stroke-width="6"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#ff2323"/>
+    <rect x="38" width="24" height="100" fill="#f0dd19"/>
+    <rect y="38" width="100" height="24" fill="#f0dd19"/>
   ${svgClose()}`;
 }
 
 function svgS() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
-    <rect x="11" y="4" width="16" height="50" fill="#1d62ff"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#ffffff"/>
+    <rect x="25" y="25" width="50" height="50" fill="#173bbd"/>
   ${svgClose()}`;
 }
 
 function svgT() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#d81f26" stroke="#000" stroke-width="1.2"/>
-    <rect x="11" y="4" width="16" height="50" fill="#ffffff"/>
+  return `${svgOpen()}
+    <rect width="33.333" height="100" x="0" fill="#ff2323"/>
+    <rect width="33.333" height="100" x="33.333" fill="#ffffff"/>
+    <rect width="33.334" height="100" x="66.666" fill="#173bbd"/>
   ${svgClose()}`;
 }
 
 function svgU() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
-    <rect x="3" y="4" width="16" height="25" fill="#d81f26"/>
-    <rect x="19" y="29" width="16" height="25" fill="#d81f26"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#ffffff"/>
+    <rect width="50" height="50" x="0" y="0" fill="#ff2323"/>
+    <rect width="50" height="50" x="50" y="50" fill="#ff2323"/>
   ${svgClose()}`;
 }
 
 function svgV() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
-    <path d="M19 4L35 29L19 54L3 29Z" fill="#d81f26"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#ffffff"/>
+    <polygon points="0,12 12,0 100,88 88,100" fill="#ff2323"/>
+    <polygon points="88,0 100,12 12,100 0,88" fill="#ff2323"/>
   ${svgClose()}`;
 }
 
 function svgW() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#1d62ff" stroke="#000" stroke-width="1.2"/>
-    <rect x="11" y="17" width="16" height="24" fill="#ffffff"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#173bbd"/>
+    <rect x="16" y="16" width="68" height="68" fill="#ffffff"/>
+    <rect x="35" y="35" width="30" height="30" fill="#ff2323"/>
   ${svgClose()}`;
 }
 
 function svgX() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
-    <path d="M19 4L35 29L19 54L3 29Z" fill="#1d62ff"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#ffffff"/>
+    <rect x="40" width="20" height="100" fill="#173bbd"/>
+    <rect y="40" width="100" height="20" fill="#173bbd"/>
   ${svgClose()}`;
 }
 
 function svgY() {
-  return `${svgOpen()}${svgPole()}
-    <path d="M3 4H35L19 29L35 54H3L19 29Z" fill="#f1d41a" stroke="#000" stroke-width="1.2"/>
-    <path d="M19 4L35 29L19 54L3 29Z" fill="#d81f26"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#f0dd19"/>
+    <polygon points="20,0 36,0 100,100 84,100" fill="#ff2323"/>
+    <polygon points="56,0 72,0 100,44 100,76" fill="#ff2323"/>
+    <polygon points="0,24 0,0 4,0 68,100 52,100" fill="#ff2323"/>
   ${svgClose()}`;
 }
 
 function svgZ() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#f1d41a" stroke="#000" stroke-width="1.2"/>
-    <path d="M3 4L35 54M35 4L3 54" stroke="#1d62ff" stroke-width="6"/>
+  return `${svgOpen()}
+    <polygon points="50,50 0,0 50,0" fill="#f0dd19"/>
+    <polygon points="50,50 50,0 100,0" fill="#173bbd"/>
+    <polygon points="50,50 100,0 100,50" fill="#111111"/>
+    <polygon points="50,50 100,50 100,100" fill="#ff2323"/>
   ${svgClose()}`;
 }
 
 function svgDash() {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="26" width="32" height="6" fill="#111"/>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#ffffff"/>
+    <rect x="10" y="44" width="80" height="12" fill="#111111"/>
   ${svgClose()}`;
 }
 
 function svgFallback(letter) {
-  return `${svgOpen()}${svgPole()}
-    <rect x="3" y="4" width="32" height="50" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
-    <text x="19" y="34" text-anchor="middle" font-size="18" font-family="Arial" fill="#111">${escapeXml(letter)}</text>
+  return `${svgOpen()}
+    <rect width="100" height="100" fill="#ffffff"/>
+    <text x="50" y="58" text-anchor="middle" font-size="42" font-family="Arial" fill="#111">${escapeXml(letter)}</text>
   ${svgClose()}`;
+}
+
+function buildSignalMarkupString(name) {
+  let html = "";
+
+  for (const char of name) {
+    if (char === " ") {
+      html += '<div class="stack space"></div>';
+      continue;
+    }
+
+    const normalized = normalizeSignalChar(char);
+    html += `<div class="stack"><div class="flag">${getSignalFlagSVG(normalized)}</div><div class="char">${escapeHtml(char.toUpperCase())}</div></div>`;
+  }
+
+  return html;
 }
 
 function exportCertificateToPrint() {
@@ -458,7 +496,7 @@ function exportCertificateToPrint() {
   const signalMarkup = buildSignalMarkupString(name);
   const baseHref = getBaseHref();
 
-  const popup = window.open("", "_blank", "width=1100,height=1500");
+  const popup = window.open("", "_blank", "width=1200,height=900");
 
   if (!popup) {
     showMessage("Das Druckfenster konnte nicht geöffnet werden. Bitte Popups erlauben.", "error");
@@ -473,7 +511,7 @@ function exportCertificateToPrint() {
 <title>Klassenfunker/in Lizenz</title>
 <base href="${baseHref}">
 <style>
-  @page { size: A4 portrait; margin: 0; }
+  @page { size: A4 landscape; margin: 0; }
   html, body {
     margin: 0;
     padding: 0;
@@ -481,6 +519,7 @@ function exportCertificateToPrint() {
     font-family: Arial, Helvetica, sans-serif;
     color: #111;
   }
+
   .helper-bar {
     display: flex;
     gap: 12px;
@@ -492,9 +531,10 @@ function exportCertificateToPrint() {
     position: sticky;
     top: 0;
   }
+
   .helper-btn {
     border: none;
-    background: #1c5cff;
+    background: #1d5cff;
     color: #fff;
     padding: 12px 18px;
     border-radius: 10px;
@@ -502,175 +542,99 @@ function exportCertificateToPrint() {
     font-size: 16px;
     font-weight: 700;
   }
+
   .helper-btn.secondary {
     background: #e8eef8;
     color: #111;
   }
+
   .page {
-    width: 210mm;
-    min-height: 297mm;
+    width: 297mm;
+    min-height: 210mm;
     margin: 0 auto;
     background: #fff;
   }
+
   .paper {
-    width: 210mm;
-    min-height: 297mm;
-    background: #fffdf7;
-    border: 2.2mm solid #111;
-    box-sizing: border-box;
-    padding: 10mm 10mm 8mm;
+    width: 297mm;
+    height: 210mm;
     position: relative;
+    background-image: url("assets/Klassenfunkerlizenz.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
   }
-  .paper:before {
-    content: "";
-    position: absolute;
-    inset: 5mm;
-    border: .5mm solid #111;
-  }
-  .content {
-    position: relative;
-    z-index: 1;
-  }
-  .logos {
-    display: grid;
-    grid-template-columns: 28mm 1fr 38mm;
-    align-items: center;
-    gap: 4mm;
-  }
-  .logos img {
-    display: block;
-    object-fit: contain;
-    max-width: 100%;
-  }
-  .diamond {
-    width: 18mm;
-  }
-  .denkschule {
-    height: 10mm;
-    justify-self: center;
-  }
-  .wave {
-    width: 34mm;
-    justify-self: end;
-  }
-  .title-main {
-    text-align: center;
-    font-size: 24pt;
-    font-weight: 800;
-    line-height: 1.08;
-    margin-top: 1mm;
-  }
-  .title-sub {
-    text-align: center;
-    font-size: 18pt;
-    font-weight: 800;
-    margin-top: 1mm;
-  }
+
   .signal-name {
-    margin-top: 5mm;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 37.7mm;
+    width: 63%;
     min-height: 24mm;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap: 1.4mm;
+    gap: 1.3mm;
     flex-wrap: wrap;
   }
+
   .stack {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1mm;
-    min-width: 11mm;
+    min-width: 8.7mm;
   }
+
   .stack.space {
-    min-width: 4mm;
+    min-width: 4.5mm;
   }
+
   .flag {
-    width: 10mm;
-    height: 15mm;
-    border: .2mm solid rgba(0,0,0,.2);
+    width: 8.2mm;
+    height: 8.2mm;
+    border: .2mm solid rgba(0,0,0,.18);
     background: #fff;
   }
+
   .char {
-    font-size: 7pt;
+    font-size: 6.4pt;
     font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
   }
-  .name {
+
+  .student-name {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 61.5mm;
+    width: 64%;
     text-align: center;
-    font-size: 19pt;
-    font-weight: 800;
-    border-bottom: .45mm solid #111;
-    padding-bottom: 2mm;
-    margin: 2mm auto 4mm;
-    max-width: 150mm;
+    font-size: 20pt;
+    font-weight: 700;
+    color: #111;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.1;
   }
-  .can {
+
+  .cert-date {
+    position: absolute;
+    left: 56.3%;
+    top: 172mm;
+    width: 23%;
+    text-align: left;
     font-size: 11pt;
-    font-weight: 700;
-    margin-bottom: 3mm;
+    color: #666;
+    line-height: 1;
   }
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3mm;
-  }
-  .box {
-    border: .45mm solid #111;
-    border-radius: 2mm;
-    padding: 3mm;
-    min-height: 42mm;
-    background: rgba(255,255,255,.9);
-  }
-  .head {
-    display: flex;
-    align-items: center;
-    gap: 3mm;
-    margin-bottom: 2.5mm;
-  }
-  .head img {
-    width: 12mm;
-    height: 12mm;
-    object-fit: contain;
-    flex: 0 0 auto;
-  }
-  .head h3 {
-    margin: 0;
-    font-size: 9.5pt;
-    line-height: 1.15;
-  }
-  .box ul {
-    margin: 0;
-    padding-left: 5mm;
-  }
-  .box li {
-    font-size: 8.1pt;
-    line-height: 1.28;
-    margin-bottom: 2mm;
-  }
-  .abc {
-    margin-top: 4.5mm;
-    text-align: center;
-    font-size: 15pt;
-    font-weight: 800;
-    letter-spacing: .06em;
-  }
-  .footer {
-    margin-top: 7mm;
-    display: flex;
-    justify-content: space-between;
-    gap: 6mm;
-    align-items: flex-end;
-  }
-  .sign {
-    width: 42%;
-    text-align: center;
-    padding-top: 3mm;
-    border-top: .35mm solid #222;
-    font-size: 10pt;
-    font-weight: 700;
-  }
+
   @media print {
-    .helper-bar { display: none !important; }
+    .helper-bar {
+      display: none !important;
+    }
   }
 </style>
 </head>
@@ -682,74 +646,9 @@ function exportCertificateToPrint() {
 
   <div class="page">
     <div class="paper">
-      <div class="content">
-        <div class="logos">
-          <img class="diamond" src="assets/logo-diamond.png" alt="" />
-          <img class="denkschule" src="assets/logo-denkschule.png" alt="" />
-          <img class="wave" src="assets/logo-wave.jpg" alt="" />
-        </div>
-
-        <div class="title-main">Klassenfunker/in</div>
-        <div class="title-sub">Lizenz</div>
-
-        <div class="signal-name">${signalMarkup}</div>
-        <div class="name">${escapeHtml(name)}</div>
-
-        <div class="can">kann:</div>
-
-        <div class="grid">
-          <div class="box">
-            <div class="head">
-              <img src="assets/icon-law.png" alt="" />
-              <h3>Rechtliches &amp; Technik</h3>
-            </div>
-            <ul>
-              <li>Frequenzen korrekt und regelkonform nutzen</li>
-              <li>erlaubte und verbotene Funknutzung sicher unterscheiden</li>
-            </ul>
-          </div>
-
-          <div class="box">
-            <div class="head">
-              <img src="assets/icon-tech.png" alt="" />
-              <h3>NATO-Buchstabieralphabet</h3>
-            </div>
-            <ul>
-              <li>Wörter, Namen und Rufzeichen korrekt buchstabieren</li>
-              <li>gehörte Buchstabierungen sicher verstehen</li>
-            </ul>
-          </div>
-
-          <div class="box">
-            <div class="head">
-              <img src="assets/icon-radio.png" alt="" />
-              <h3>Telegrafie &amp; Morsen</h3>
-            </div>
-            <ul>
-              <li>einfache Nachrichten in Morse senden</li>
-              <li>Morsezeichen sicher erkennen und verstehen</li>
-            </ul>
-          </div>
-
-          <div class="box">
-            <div class="head">
-              <img src="assets/icon-radio.png" alt="" />
-              <h3>Praktische Anwendung &amp; Funkdisziplin</h3>
-            </div>
-            <ul>
-              <li>ein Handfunkgerät sicher bedienen</li>
-              <li>Funkgespräche klar, kurz und regelkonform führen</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="abc">Alpha Bravo Charlie</div>
-
-        <div class="footer">
-          <div class="sign">Kursleiter</div>
-          <div class="sign">${escapeHtml(date)}</div>
-        </div>
-      </div>
+      <div class="signal-name">${signalMarkup}</div>
+      <div class="student-name">${escapeHtml(name)}</div>
+      <div class="cert-date">${escapeHtml(date)}</div>
     </div>
   </div>
 
@@ -772,22 +671,6 @@ function exportCertificateToPrint() {
   popup.document.open();
   popup.document.write(html);
   popup.document.close();
-}
-
-function buildSignalMarkupString(name) {
-  let html = "";
-
-  for (const char of name) {
-    if (char === " ") {
-      html += '<div class="stack space"></div>';
-      continue;
-    }
-
-    const normalized = normalizeSignalChar(char);
-    html += `<div class="stack"><div class="flag">${getSignalFlagSVG(normalized)}</div><div class="char">${escapeHtml(char.toUpperCase())}</div></div>`;
-  }
-
-  return html;
 }
 
 function getBaseHref() {
