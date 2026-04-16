@@ -24,10 +24,6 @@
   --shadow: 0 14px 30px rgba(15, 29, 49, 0.08);
   --radius: 18px;
   --font: Arial, Helvetica, sans-serif;
-
-  /* A4 Vorschau */
-  --cert-width: 980px;
-  --cert-height: 693px;
 }
 
 html {
@@ -276,7 +272,7 @@ img {
 }
 
 .certificate-paper {
-  width: min(100%, var(--cert-width));
+  width: min(100%, 980px);
   aspect-ratio: 1056 / 792;
   margin: 0 auto;
   position: relative;
@@ -293,14 +289,13 @@ img {
   inset: 0;
 }
 
-/* Positionen passend zur hochgeladenen JPG-Vorlage */
 .signal-name {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   top: 142px;
   width: 63%;
-  min-height: 90px;
+  min-height: 72px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -312,7 +307,6 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
   min-width: 34px;
 }
 
@@ -326,14 +320,6 @@ img {
   display: block;
   border: 1px solid rgba(0, 0, 0, 0.18);
   background: #fff;
-}
-
-.signal-char {
-  font-size: 0.72rem;
-  font-weight: 700;
-  line-height: 1;
-  text-transform: uppercase;
-  color: #111;
 }
 
 .student-name {
@@ -353,12 +339,13 @@ img {
 .cert-date {
   position: absolute;
   left: 56.3%;
-  top: 648px;
+  top: 634px;
   width: 23%;
   text-align: left;
-  font-size: 1.15rem;
+  font-size: 1rem;
   color: #666;
   line-height: 1;
+  background: transparent;
 }
 
 .certificate-actions {
@@ -374,7 +361,7 @@ img {
 @media (max-width: 920px) {
   .signal-name {
     top: 13.2vw;
-    min-height: 72px;
+    min-height: 58px;
   }
 
   .student-name {
@@ -383,8 +370,8 @@ img {
   }
 
   .cert-date {
-    top: 82%;
-    font-size: 0.95rem;
+    top: 80%;
+    font-size: 0.88rem;
   }
 
   .signal-flag {
@@ -424,10 +411,6 @@ img {
     height: 22px;
   }
 
-  .signal-char {
-    font-size: 0.6rem;
-  }
-
   .flag-letter-stack {
     min-width: 24px;
   }
@@ -438,6 +421,6 @@ img {
   }
 
   .cert-date {
-    font-size: 0.75rem;
+    font-size: 0.68rem;
   }
 }
