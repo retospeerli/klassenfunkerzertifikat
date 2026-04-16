@@ -10,10 +10,10 @@
   <div class="app-shell">
     <header class="app-header">
       <h1>Funkerschule 15</h1>
-      <p class="subtitle">Klassenfunker/in Lizenz</p>
+      <p class="subtitle">Zertifikats-App</p>
     </header>
 
-    <main class="layout">
+    <main class="main-grid">
       <section class="panel form-panel">
         <h2>Zertifikat freischalten</h2>
 
@@ -93,75 +93,10 @@
   <template id="certificateTemplate">
     <article class="certificate-card">
       <div class="certificate-paper" id="certificatePreview">
-        <div class="certificate-inner-frame"></div>
-
-        <div class="cert-header-logos">
-          <img src="assets/logo-diamond.png" alt="" class="logo logo-diamond" />
-          <img src="assets/logo-denkschule.png" alt="" class="logo logo-denkschule" />
-          <img src="assets/logo-wave.jpg" alt="" class="logo logo-wave" />
-        </div>
-
-        <div class="cert-title-wrap">
-          <div class="cert-title-main">Klassenfunker/in</div>
-          <div class="cert-title-sub">Lizenz</div>
-        </div>
-
-        <div id="signalName" class="signal-name" aria-label="Name mit Signalflaggen"></div>
-        <div class="cert-name" id="studentName"></div>
-
-        <div class="cert-can">kann:</div>
-
-        <div class="goals-grid">
-          <section class="goal-card">
-            <div class="goal-head">
-              <img src="assets/icon-law.png" alt="" class="goal-icon" />
-              <h3>Rechtliches &amp; Technik</h3>
-            </div>
-            <ul>
-              <li>Frequenzen korrekt und regelkonform nutzen</li>
-              <li>erlaubte und verbotene Funknutzung sicher unterscheiden</li>
-            </ul>
-          </section>
-
-          <section class="goal-card">
-            <div class="goal-head">
-              <img src="assets/icon-tech.png" alt="" class="goal-icon" />
-              <h3>NATO-Buchstabieralphabet</h3>
-            </div>
-            <ul>
-              <li>Wörter, Namen und Rufzeichen korrekt buchstabieren</li>
-              <li>gehörte Buchstabierungen sicher verstehen</li>
-            </ul>
-          </section>
-
-          <section class="goal-card">
-            <div class="goal-head">
-              <img src="assets/icon-radio.png" alt="" class="goal-icon" />
-              <h3>Telegrafie &amp; Morsen</h3>
-            </div>
-            <ul>
-              <li>einfache Nachrichten in Morse senden</li>
-              <li>Morsezeichen sicher erkennen und verstehen</li>
-            </ul>
-          </section>
-
-          <section class="goal-card">
-            <div class="goal-head">
-              <img src="assets/icon-radio.png" alt="" class="goal-icon" />
-              <h3>Praktische Anwendung &amp; Funkdisziplin</h3>
-            </div>
-            <ul>
-              <li>ein Handfunkgerät sicher bedienen</li>
-              <li>Funkgespräche klar, kurz und regelkonform führen</li>
-            </ul>
-          </section>
-        </div>
-
-        <div class="abc-line">Alpha Bravo Charlie</div>
-
-        <div class="cert-footer">
-          <div class="sign-field">Kursleiter</div>
-          <div class="sign-field" id="certDate"></div>
+        <div class="certificate-overlay">
+          <div id="signalName" class="signal-name" aria-label="Name mit Signalflaggen"></div>
+          <div id="studentName" class="student-name"></div>
+          <div id="certDate" class="cert-date"></div>
         </div>
       </div>
 
