@@ -172,11 +172,6 @@ function buildSignalName(name) {
     flag.innerHTML = getSignalFlagSVG(normalized);
     stack.appendChild(flag);
 
-    const letter = document.createElement("div");
-    letter.className = "signal-char";
-    letter.textContent = char.toUpperCase();
-    stack.appendChild(letter);
-
     wrapper.appendChild(stack);
   }
 
@@ -484,7 +479,7 @@ function buildSignalMarkupString(name) {
     }
 
     const normalized = normalizeSignalChar(char);
-    html += `<div class="stack"><div class="flag">${getSignalFlagSVG(normalized)}</div><div class="char">${escapeHtml(char.toUpperCase())}</div></div>`;
+    html += `<div class="stack"><div class="flag">${getSignalFlagSVG(normalized)}</div></div>`;
   }
 
   return html;
@@ -572,7 +567,7 @@ function exportCertificateToPrint() {
     transform: translateX(-50%);
     top: 37.7mm;
     width: 63%;
-    min-height: 24mm;
+    min-height: 18mm;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -584,7 +579,6 @@ function exportCertificateToPrint() {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1mm;
     min-width: 8.7mm;
   }
 
@@ -597,13 +591,6 @@ function exportCertificateToPrint() {
     height: 8.2mm;
     border: .2mm solid rgba(0,0,0,.18);
     background: #fff;
-  }
-
-  .char {
-    font-size: 6.4pt;
-    font-weight: 700;
-    line-height: 1;
-    text-transform: uppercase;
   }
 
   .student-name {
@@ -623,12 +610,13 @@ function exportCertificateToPrint() {
   .cert-date {
     position: absolute;
     left: 56.3%;
-    top: 172mm;
+    top: 168.4mm;
     width: 23%;
     text-align: left;
-    font-size: 11pt;
+    font-size: 10pt;
     color: #666;
     line-height: 1;
+    background: transparent;
   }
 
   @media print {
