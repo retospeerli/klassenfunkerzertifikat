@@ -3,109 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Funkerschule 15 – Klassenfunker/in Lizenz</title>
+  <title>Funkerschule 15 – Zertifikat</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="app-shell">
-    <header class="app-header">
-      <h1>Funkerschule 15</h1>
-      <p class="subtitle">Zertifikats-App</p>
-    </header>
 
-    <main class="main-grid">
-      <section class="panel form-panel">
-        <h2>Zertifikat freischalten</h2>
+<div class="app">
+  <h1>Funkerschule 15</h1>
 
-        <div class="field-group">
-          <label for="fullName">Vorname und Nachname</label>
-          <input
-            id="fullName"
-            type="text"
-            placeholder="z. B. Max Muster"
-            autocomplete="name"
-          />
-        </div>
+  <div class="form">
+    <input id="name" placeholder="Vorname Nachname" />
 
-        <div class="field-group">
-          <label for="pw1">Passwort 1</label>
-          <input
-            id="pw1"
-            type="password"
-            placeholder="Passwort eingeben"
-            autocomplete="off"
-          />
-        </div>
+    <input id="pw1" type="password" placeholder="Passwort 1" />
+    <input id="pw2" type="password" placeholder="Passwort 2" />
+    <input id="pw3" type="password" placeholder="Passwort 3" />
 
-        <div class="field-group">
-          <label for="pw2">Passwort 2</label>
-          <input
-            id="pw2"
-            type="password"
-            placeholder="Passwort eingeben"
-            autocomplete="off"
-          />
-        </div>
-
-        <div class="field-group">
-          <label for="pw3">Passwort 3</label>
-          <input
-            id="pw3"
-            type="password"
-            placeholder="Passwort eingeben"
-            autocomplete="off"
-          />
-        </div>
-
-        <div class="button-row">
-          <button id="unlockBtn" class="big-btn primary-btn" type="button">Zertifikat prüfen</button>
-          <button id="resetBtn" class="big-btn secondary-btn" type="button">Zurücksetzen</button>
-        </div>
-
-        <div id="messageBox" class="message-box" aria-live="polite"></div>
-      </section>
-
-      <section class="panel status-panel">
-        <h2>Status</h2>
-
-        <div id="statusCard" class="status-card">
-          <div>
-            <h3>Klassenfunker/in Lizenz</h3>
-            <p id="statusText">Noch nicht freigeschaltet</p>
-          </div>
-          <span id="statusBadge" class="status-badge locked">Gesperrt</span>
-        </div>
-
-        <div class="status-note">
-          <p>Das Zertifikat wird erst sichtbar, wenn alle drei Passwörter korrekt eingegeben wurden.</p>
-        </div>
-      </section>
-    </main>
-
-    <section class="panel cert-panel">
-      <h2>Zertifikat</h2>
-      <div id="certificateHost" class="certificate-host">
-        <div class="empty-state">Gib zuerst deinen Namen ein und schalte dann das Zertifikat frei.</div>
-      </div>
-    </section>
+    <button id="check">Zertifikat prüfen</button>
+    <div id="msg"></div>
   </div>
 
-  <template id="certificateTemplate">
-    <article class="certificate-card">
-      <div class="certificate-paper" id="certificatePreview">
-        <div class="certificate-overlay">
-          <div id="signalName" class="signal-name" aria-label="Name mit Signalflaggen"></div>
-          <div id="studentName" class="student-name"></div>
-          <div id="certDate" class="cert-date"></div>
-        </div>
-      </div>
+  <div id="certContainer"></div>
+</div>
 
-      <div class="certificate-actions">
-        <button id="exportBtn" class="big-btn export-btn" type="button">Zertifikat als PDF exportieren</button>
-      </div>
-    </article>
-  </template>
+<template id="certTemplate">
+  <div class="cert">
+    <div class="overlay">
+      <div class="flags" id="flags"></div>
+      <div class="student" id="student"></div>
+    </div>
+    <button id="printBtn">PDF exportieren</button>
+  </div>
+</template>
 
-  <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
