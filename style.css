@@ -1,426 +1,60 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-:root {
-  --bg: #edf2fa;
-  --panel: #ffffff;
-  --line: #d7deea;
-  --text: #102036;
-  --muted: #5b687a;
-  --blue: #1d5cff;
-  --blue-dark: #1646b8;
-  --green: #19853d;
-  --green-soft: #e8f7ec;
-  --green-line: #a9d9b5;
-  --danger: #a61d1d;
-  --danger-bg: #ffe7e7;
-  --danger-line: #f0bebe;
-  --info-bg: #e9f2ff;
-  --info-line: #bfd2fb;
-  --info-text: #1a4fa1;
-  --shadow: 0 14px 30px rgba(15, 29, 49, 0.08);
-  --radius: 18px;
-  --font: Arial, Helvetica, sans-serif;
-}
-
-html {
-  font-size: 16px;
-}
-
 body {
   margin: 0;
-  font-family: var(--font);
-  color: var(--text);
-  background: linear-gradient(180deg, #f7f9fd 0%, #edf3fb 100%);
+  font-family: Arial;
+  background: #eef3fa;
+  text-align: center;
 }
 
-button,
-input {
-  font: inherit;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-.app-shell {
-  max-width: 1380px;
-  margin: 0 auto;
+.app {
   padding: 20px;
 }
 
-.app-header {
-  text-align: center;
-  margin-bottom: 20px;
+input {
+  display: block;
+  margin: 10px auto;
+  padding: 12px;
+  font-size: 16px;
+  width: 250px;
 }
 
-.app-header h1 {
-  margin: 0;
-  font-size: clamp(2rem, 4vw, 3rem);
-}
-
-.subtitle {
-  margin: 8px 0 0;
-  color: var(--muted);
-  font-size: 1.08rem;
-}
-
-.main-grid {
-  display: grid;
-  grid-template-columns: 430px 1fr;
-  gap: 20px;
-  align-items: start;
-}
-
-.panel {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 22px;
-}
-
-.panel h2 {
-  margin: 0 0 18px;
-  font-size: 1.45rem;
-}
-
-.field-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.field-group label {
-  font-weight: 700;
-}
-
-.field-group input {
-  width: 100%;
-  min-height: 60px;
-  padding: 14px 16px;
-  border-radius: 14px;
-  border: 2px solid var(--line);
-  font-size: 1.05rem;
-  background: #fff;
-  color: var(--text);
-}
-
-.field-group input:focus {
-  outline: none;
-  border-color: var(--blue);
-  box-shadow: 0 0 0 4px rgba(29, 92, 255, 0.12);
-}
-
-.button-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.big-btn {
-  min-height: 64px;
-  padding: 14px 22px;
-  border: none;
-  border-radius: 16px;
+button {
+  padding: 12px 20px;
+  font-size: 16px;
   cursor: pointer;
-  font-size: 1.05rem;
-  font-weight: 700;
-  transition: transform 0.12s ease, background 0.12s ease;
 }
 
-.big-btn:hover {
-  transform: translateY(-1px);
+.cert {
+  margin-top: 30px;
 }
 
-.big-btn:active {
-  transform: translateY(0);
-}
-
-.primary-btn {
-  background: var(--blue);
-  color: #fff;
-}
-
-.primary-btn:hover {
-  background: var(--blue-dark);
-}
-
-.secondary-btn {
-  background: #eef3ff;
-  color: var(--text);
-  border: 1px solid var(--line);
-}
-
-.export-btn {
-  width: 100%;
-  background: var(--green);
-  color: #fff;
-}
-
-.message-box {
-  margin-top: 16px;
-  min-height: 24px;
-  border-radius: 14px;
-  font-weight: 700;
-}
-
-.message-box.error,
-.message-box.success,
-.message-box.info {
-  padding: 14px 16px;
-}
-
-.message-box.error {
-  background: var(--danger-bg);
-  color: var(--danger);
-  border: 1px solid var(--danger-line);
-}
-
-.message-box.success {
-  background: var(--green-soft);
-  color: #0e6b2e;
-  border: 1px solid var(--green-line);
-}
-
-.message-box.info {
-  background: var(--info-bg);
-  color: var(--info-text);
-  border: 1px solid var(--info-line);
-}
-
-.status-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 16px;
-  border: 2px solid var(--line);
-  border-radius: 16px;
-  background: #fafcff;
-}
-
-.status-card.unlocked {
-  background: var(--green-soft);
-  border-color: var(--green-line);
-}
-
-.status-card h3 {
-  margin: 0 0 6px;
-}
-
-.status-card p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.status-badge {
-  min-width: 116px;
-  text-align: center;
-  border-radius: 999px;
-  padding: 10px 12px;
-  font-weight: 700;
-}
-
-.status-badge.locked {
-  background: #eef1f6;
-  color: #667385;
-}
-
-.status-badge.unlocked {
-  background: var(--green);
-  color: #fff;
-}
-
-.status-note {
-  margin-top: 16px;
-  padding: 14px 16px;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  color: var(--muted);
-  background: #fbfcff;
-}
-
-.cert-panel {
-  margin-top: 20px;
-}
-
-.certificate-host {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-x: auto;
-}
-
-.empty-state {
-  width: 100%;
-  text-align: center;
-  color: var(--muted);
-  border: 2px dashed var(--line);
-  border-radius: 16px;
-  background: #fafcff;
-  padding: 18px;
-}
-
-.certificate-card {
-  width: 100%;
-}
-
-.certificate-paper {
-  width: min(100%, 980px);
-  aspect-ratio: 1056 / 792;
-  margin: 0 auto;
+.overlay {
   position: relative;
+  width: 980px;
+  height: 693px;
+  margin: auto;
   background-image: url("assets/Klassenfunkerlizenz.jpg");
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
 }
 
-.certificate-overlay {
+.flags {
   position: absolute;
-  inset: 0;
-}
-
-.signal-name {
-  position: absolute;
+  top: 140px;
   left: 50%;
   transform: translateX(-50%);
-  top: 142px;
-  width: 63%;
-  min-height: 72px;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 5px;
-  flex-wrap: wrap;
+  gap: 4px;
 }
 
-.flag-letter-stack {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 34px;
+.flag {
+  width: 28px;
+  height: 28px;
 }
 
-.flag-letter-stack.space {
-  min-width: 18px;
-}
-
-.signal-flag {
-  width: 32px;
-  height: 32px;
-  display: block;
-  border: 1px solid rgba(0, 0, 0, 0.18);
-  background: #fff;
-}
-
-.student-name {
+.student {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   top: 235px;
-  width: 64%;
-  text-align: center;
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #111;
-  font-family: Georgia, "Times New Roman", serif;
-  line-height: 1.1;
-}
-
-.cert-date {
-  position: absolute;
-  left: 56.3%;
-  top: 900px;
-  width: 23%;
-  text-align: left;
-  font-size: 1rem;
-  color: #666;
-  line-height: 1;
-  background: transparent;
-}
-
-.certificate-actions {
-  margin-top: 16px;
-}
-
-@media (max-width: 1180px) {
-  .main-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 920px) {
-  .signal-name {
-    top: 13.2vw;
-    min-height: 58px;
-  }
-
-  .student-name {
-    top: 22.4vw;
-    font-size: 1.8rem;
-  }
-
-  .cert-date {
-    top: 80%;
-    font-size: 0.88rem;
-  }
-
-  .signal-flag {
-    width: 28px;
-    height: 28px;
-  }
-
-  .flag-letter-stack {
-    min-width: 30px;
-  }
-}
-
-@media (max-width: 640px) {
-  .app-shell {
-    padding: 14px;
-  }
-
-  .panel {
-    padding: 16px;
-  }
-
-  .button-row {
-    flex-direction: column;
-  }
-
-  .big-btn {
-    width: 100%;
-  }
-
-  .signal-name {
-    gap: 3px;
-    top: 11.6vw;
-  }
-
-  .signal-flag {
-    width: 22px;
-    height: 22px;
-  }
-
-  .flag-letter-stack {
-    min-width: 24px;
-  }
-
-  .student-name {
-    font-size: 1.2rem;
-    top: 21.8vw;
-  }
-
-  .cert-date {
-    font-size: 0.68rem;
-  }
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+  font-family: Georgia;
 }
