@@ -339,7 +339,7 @@ img {
 .cert-date {
   position: absolute;
   left: 56.3%;
-  top: 610px;
+  top: 580px; /* nach oben verschoben */
   width: 23%;
   text-align: left;
   font-size: 1rem;
