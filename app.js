@@ -1,8 +1,9 @@
-const STORAGE_KEY = "funkerschule15_cert_bg_final_v1";
+const STORAGE_KEY = "funkerschule15_cert_bg_final_v2";
 
 const PASSWORD_1 = "Speerli";
 const PASSWORD_2 = "Untermosen";
 const PASSWORD_3 = "Guglielmo Marconi";
+const PASSWORD_4 = "Heinrich Hertz";
 
 let appState = {
   fullName: "",
@@ -13,6 +14,7 @@ const fullNameInput = document.getElementById("fullName");
 const pw1Input = document.getElementById("pw1");
 const pw2Input = document.getElementById("pw2");
 const pw3Input = document.getElementById("pw3");
+const pw4Input = document.getElementById("pw4");
 const unlockBtn = document.getElementById("unlockBtn");
 const resetBtn = document.getElementById("resetBtn");
 const messageBox = document.getElementById("messageBox");
@@ -41,7 +43,7 @@ function bindEvents() {
     renderStatus();
   });
 
-  [pw1Input, pw2Input, pw3Input].forEach((input) => {
+  [pw1Input, pw2Input, pw3Input, pw4Input].forEach((input) => {
     input.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
         handleUnlock();
@@ -52,9 +54,11 @@ function bindEvents() {
 
 function handleUnlock() {
   const fullName = fullNameInput.value.trim();
+
   const p1 = normalizeValue(pw1Input.value);
   const p2 = normalizeValue(pw2Input.value);
   const p3 = normalizeValue(pw3Input.value);
+  const p4 = normalizeValueNoSpace(pw4Input.value);
 
   clearMessage();
 
@@ -64,7 +68,7 @@ function handleUnlock() {
     return;
   }
 
-  if (!p1 && !p2 && !p3) {
+  if (!p1 && !p2 && !p3 && !p4) {
     showMessage("Bitte gib die Passwörter ein.", "error");
     return;
   }
@@ -74,7 +78,8 @@ function handleUnlock() {
   const allCorrect =
     p1 === normalizeValue(PASSWORD_1) &&
     p2 === normalizeValue(PASSWORD_2) &&
-    p3 === normalizeValue(PASSWORD_3);
+    p3 === normalizeValue(PASSWORD_3) &&
+    p4 === normalizeValueNoSpace(PASSWORD_4);
 
   if (allCorrect) {
     appState.unlocked = true;
@@ -90,6 +95,7 @@ function handleUnlock() {
   pw1Input.value = "";
   pw2Input.value = "";
   pw3Input.value = "";
+  pw4Input.value = "";
 }
 
 function handleReset() {
@@ -102,6 +108,7 @@ function handleReset() {
   pw1Input.value = "";
   pw2Input.value = "";
   pw3Input.value = "";
+  pw4Input.value = "";
   clearMessage();
   saveState();
   renderAll();
@@ -681,6 +688,13 @@ function getBaseHref() {
 
 function normalizeValue(value) {
   return String(value || "").trim().toLowerCase();
+}
+
+function normalizeValueNoSpace(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/\s+/g, "")
+    .trim();
 }
 
 function formatDate(date) {
