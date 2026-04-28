@@ -1,28 +1,82 @@
-const STORAGE_KEY = "funkerschule15_cert_bg_final_v2";
+/* =========================================================
+   FUNKERSCHULE 15 – ZERTIFIKATS-APP
+   ---------------------------------------------------------
+   Zweck:
+   - Kein Quiz, keine Lernkarten.
+   - Lernende geben Namen und vier Passwörter ein.
+   - Sind alle Passwörter korrekt, wird ein Zertifikat freigeschaltet.
+   - Das Zertifikat nutzt assets/Klassenfunkerlizenz.jpg als Hintergrund.
+   - Signalflaggen werden als SVG direkt im Code erzeugt.
+   - PDF-Export öffnet ein Druckfenster und wartet, bis das JPG geladen ist.
+
+   Wichtige Datei:
+   /assets/Klassenfunkerlizenz.jpg
+   ========================================================= */
+
+
+/* =========================================================
+   KONFIGURATION: LOCALSTORAGE
+   ---------------------------------------------------------
+   Wenn du alte gespeicherte Freischaltungen löschen willst:
+   - entweder Browserdaten löschen
+   - oder STORAGE_KEY umbenennen
+   ========================================================= */
+
+const STORAGE_KEY = "funkerschule15_cert_bg_final_v6";
+
+
+/* =========================================================
+   KONFIGURATION: INTERNE PASSWÖRTER
+   ---------------------------------------------------------
+   Diese Passwörter erscheinen nirgends in der Benutzeroberfläche.
+   Vergleich:
+   - Passwort 1–3: Gross-/Kleinschreibung wird ignoriert.
+   - Passwort 4: Gross-/Kleinschreibung UND Wortabstände werden ignoriert.
+   ========================================================= */
 
 const PASSWORD_1 = "Speerli";
 const PASSWORD_2 = "Untermosen";
 const PASSWORD_3 = "Guglielmo Marconi";
 const PASSWORD_4 = "Heinrich Hertz";
 
+
+/* =========================================================
+   APP-ZUSTAND
+   ========================================================= */
+
 let appState = {
   fullName: "",
   unlocked: false
 };
 
+
+/* =========================================================
+   DOM-ELEMENTE
+   ========================================================= */
+
 const fullNameInput = document.getElementById("fullName");
+
 const pw1Input = document.getElementById("pw1");
 const pw2Input = document.getElementById("pw2");
 const pw3Input = document.getElementById("pw3");
 const pw4Input = document.getElementById("pw4");
+
 const unlockBtn = document.getElementById("unlockBtn");
 const resetBtn = document.getElementById("resetBtn");
+
 const messageBox = document.getElementById("messageBox");
+
 const certificateHost = document.getElementById("certificateHost");
 const certificateTemplate = document.getElementById("certificateTemplate");
+
 const statusCard = document.getElementById("statusCard");
 const statusText = document.getElementById("statusText");
 const statusBadge = document.getElementById("statusBadge");
+
+
+/* =========================================================
+   START DER APP
+   ========================================================= */
 
 init();
 
@@ -32,6 +86,11 @@ function init() {
   renderAll();
 }
 
+
+/* =========================================================
+   EVENT-LISTENER
+   ========================================================= */
+
 function bindEvents() {
   unlockBtn.addEventListener("click", handleUnlock);
   resetBtn.addEventListener("click", handleReset);
@@ -39,8 +98,8 @@ function bindEvents() {
   fullNameInput.addEventListener("input", () => {
     appState.fullName = fullNameInput.value.trim();
     saveState();
-    renderCertificate();
     renderStatus();
+    renderCertificate();
   });
 
   [pw1Input, pw2Input, pw3Input, pw4Input].forEach((input) => {
@@ -51,6 +110,11 @@ function bindEvents() {
     });
   });
 }
+
+
+/* =========================================================
+   PASSWÖRTER PRÜFEN
+   ========================================================= */
 
 function handleUnlock() {
   const fullName = fullNameInput.value.trim();
@@ -92,11 +156,13 @@ function handleUnlock() {
   saveState();
   renderAll();
 
-  pw1Input.value = "";
-  pw2Input.value = "";
-  pw3Input.value = "";
-  pw4Input.value = "";
+  clearPasswordFields();
 }
+
+
+/* =========================================================
+   ZURÜCKSETZEN
+   ========================================================= */
 
 function handleReset() {
   appState = {
@@ -105,15 +171,26 @@ function handleReset() {
   };
 
   fullNameInput.value = "";
+  clearPasswordFields();
+  clearMessage();
+
+  saveState();
+  renderAll();
+
+  showMessage("Alle gespeicherten Daten wurden zurückgesetzt.", "info");
+}
+
+function clearPasswordFields() {
   pw1Input.value = "";
   pw2Input.value = "";
   pw3Input.value = "";
   pw4Input.value = "";
-  clearMessage();
-  saveState();
-  renderAll();
-  showMessage("Alle gespeicherten Daten wurden zurückgesetzt.", "info");
 }
+
+
+/* =========================================================
+   GESAMT-RENDERING
+   ========================================================= */
 
 function renderAll() {
   fullNameInput.value = appState.fullName || "";
@@ -121,8 +198,14 @@ function renderAll() {
   renderCertificate();
 }
 
+
+/* =========================================================
+   STATUS ANZEIGEN
+   ========================================================= */
+
 function renderStatus() {
   statusCard.classList.toggle("unlocked", appState.unlocked);
+
   statusBadge.classList.toggle("unlocked", appState.unlocked);
   statusBadge.classList.toggle("locked", !appState.unlocked);
 
@@ -133,16 +216,23 @@ function renderStatus() {
     : "Noch nicht freigeschaltet";
 }
 
+
+/* =========================================================
+   ZERTIFIKAT IN DER VORSCHAU ANZEIGEN
+   ========================================================= */
+
 function renderCertificate() {
   certificateHost.innerHTML = "";
 
   if (!appState.fullName) {
-    certificateHost.innerHTML = '<div class="empty-state">Gib zuerst deinen Namen ein und schalte dann das Zertifikat frei.</div>';
+    certificateHost.innerHTML =
+      '<div class="empty-state">Gib zuerst deinen Namen ein und schalte dann das Zertifikat frei.</div>';
     return;
   }
 
   if (!appState.unlocked) {
-    certificateHost.innerHTML = '<div class="empty-state">Das Zertifikat ist noch nicht freigeschaltet.</div>';
+    certificateHost.innerHTML =
+      '<div class="empty-state">Das Zertifikat ist noch nicht freigeschaltet.</div>';
     return;
   }
 
@@ -159,6 +249,16 @@ function renderCertificate() {
   certificateHost.appendChild(fragment);
 }
 
+
+/* =========================================================
+   SIGNALFLAGGEN: NAMEN IN FLAGGEN UMSETZEN
+   ---------------------------------------------------------
+   Wichtig:
+   - Buchstaben unter den Flaggen werden NICHT angezeigt.
+   - Leerzeichen erzeugen nur Abstand.
+   - Umlaute werden auf Grundbuchstaben reduziert.
+   ========================================================= */
+
 function buildSignalName(name) {
   const wrapper = document.createDocumentFragment();
 
@@ -170,10 +270,10 @@ function buildSignalName(name) {
       continue;
     }
 
+    const normalized = normalizeSignalChar(char);
+
     const stack = document.createElement("div");
     stack.className = "flag-letter-stack";
-
-    const normalized = normalizeSignalChar(char);
 
     const flag = document.createElement("div");
     flag.className = "signal-flag";
@@ -185,6 +285,32 @@ function buildSignalName(name) {
 
   return wrapper;
 }
+
+function buildSignalMarkupString(name) {
+  let html = "";
+
+  for (const char of name) {
+    if (char === " ") {
+      html += '<div class="stack space"></div>';
+      continue;
+    }
+
+    const normalized = normalizeSignalChar(char);
+
+    html += `
+      <div class="stack">
+        <div class="flag">${getSignalFlagSVG(normalized)}</div>
+      </div>
+    `;
+  }
+
+  return html;
+}
+
+
+/* =========================================================
+   SIGNALFLAGGEN: ZEICHEN NORMALISIEREN
+   ========================================================= */
 
 function normalizeSignalChar(char) {
   const c = String(char || "").toUpperCase();
@@ -209,6 +335,17 @@ function normalizeSignalChar(char) {
 
   return map[c] || c;
 }
+
+
+/* =========================================================
+   SIGNALFLAGGEN: A–Z ALS SVG
+   ---------------------------------------------------------
+   Die Flaggen sind direkt als SVG eingebettet.
+   Vorteil:
+   - offlinefähig
+   - keine zusätzlichen Dateien
+   - scharf im Druck/PDF
+   ========================================================= */
 
 function getSignalFlagSVG(letter) {
   const flags = {
@@ -465,21 +602,19 @@ function svgFallback(letter) {
   ${svgClose()}`;
 }
 
-function buildSignalMarkupString(name) {
-  let html = "";
 
-  for (const char of name) {
-    if (char === " ") {
-      html += '<div class="stack space"></div>';
-      continue;
-    }
-
-    const normalized = normalizeSignalChar(char);
-    html += `<div class="stack"><div class="flag">${getSignalFlagSVG(normalized)}</div></div>`;
-  }
-
-  return html;
-}
+/* =========================================================
+   PDF-EXPORT
+   ---------------------------------------------------------
+   Gewünschte aktuelle Anpassungen:
+   - Nur im PDF:
+     - Name des Lernenden tiefer setzen
+     - Name ca. Faktor 1.5 grösser schreiben
+     - Datum grösser schreiben
+     - Datum weiter unten platzieren
+   - Hintergrundbild wird als echtes IMG eingebunden.
+   - Druck startet erst, wenn das JPG geladen ist.
+   ========================================================= */
 
 function exportCertificateToPrint() {
   const name = appState.fullName;
@@ -501,9 +636,13 @@ function exportCertificateToPrint() {
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Klassenfunker/in Lizenz</title>
 <style>
-  @page { size: A4 landscape; margin: 0; }
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
 
-  html, body {
+  html,
+  body {
     margin: 0;
     padding: 0;
     background: #fff;
@@ -567,6 +706,7 @@ function exportCertificateToPrint() {
     display: block;
   }
 
+  /* PDF: Signalflaggen */
   .signal-name {
     position: absolute;
     left: 50%;
@@ -574,11 +714,13 @@ function exportCertificateToPrint() {
     top: 37.7mm;
     width: 63%;
     min-height: 18mm;
+
     display: flex;
     justify-content: center;
     align-items: flex-end;
     gap: 1.3mm;
     flex-wrap: wrap;
+
     z-index: 2;
   }
 
@@ -600,30 +742,46 @@ function exportCertificateToPrint() {
     background: #fff;
   }
 
+  /*
+     PDF: Name des Lernenden
+     Änderung:
+     - deutlich nach unten verschoben
+     - ca. Faktor 1.5 grösser als vorher
+  */
   .student-name {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 61.5mm;
-    width: 64%;
+    top: 72mm;
+    width: 80%;
+
     text-align: center;
-    font-size: 20pt;
+    font-size: 30pt;
     font-weight: 700;
     color: #111;
     font-family: Georgia, "Times New Roman", serif;
     line-height: 1.1;
+
     z-index: 2;
   }
 
+  /*
+     PDF: Datum
+     Änderung:
+     - weiter nach unten gesetzt
+     - grösser geschrieben
+  */
   .cert-date {
     position: absolute;
     left: 56.3%;
-    top: 161.8mm;
+    top: 169mm;
     width: 23%;
+
     text-align: left;
-    font-size: 10pt;
+    font-size: 13pt;
     color: #666;
     line-height: 1;
+
     z-index: 2;
   }
 
@@ -681,10 +839,20 @@ function exportCertificateToPrint() {
   popup.document.close();
 }
 
+
+/* =========================================================
+   HILFSFUNKTIONEN: PFADE
+   ========================================================= */
+
 function getBaseHref() {
   const href = window.location.href;
   return href.substring(0, href.lastIndexOf("/") + 1);
 }
+
+
+/* =========================================================
+   HILFSFUNKTIONEN: PASSWÖRTER NORMALISIEREN
+   ========================================================= */
 
 function normalizeValue(value) {
   return String(value || "").trim().toLowerCase();
@@ -692,10 +860,15 @@ function normalizeValue(value) {
 
 function normalizeValueNoSpace(value) {
   return String(value || "")
+    .trim()
     .toLowerCase()
-    .replace(/\s+/g, "")
-    .trim();
+    .replace(/\s+/g, "");
 }
+
+
+/* =========================================================
+   HILFSFUNKTIONEN: DATUM
+   ========================================================= */
 
 function formatDate(date) {
   return new Intl.DateTimeFormat("de-CH", {
@@ -704,6 +877,11 @@ function formatDate(date) {
     year: "numeric"
   }).format(date);
 }
+
+
+/* =========================================================
+   HILFSFUNKTIONEN: MELDUNGEN
+   ========================================================= */
 
 function showMessage(text, type = "info") {
   messageBox.textContent = text;
@@ -715,22 +893,39 @@ function clearMessage() {
   messageBox.className = "message-box";
 }
 
+
+/* =========================================================
+   HILFSFUNKTIONEN: LOCALSTORAGE
+   ========================================================= */
+
 function saveState() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
 }
 
 function loadState() {
   const raw = localStorage.getItem(STORAGE_KEY);
-  if (!raw) return;
+
+  if (!raw) {
+    return;
+  }
 
   try {
     const parsed = JSON.parse(raw);
-    appState.fullName = typeof parsed.fullName === "string" ? parsed.fullName : "";
+
+    appState.fullName = typeof parsed.fullName === "string"
+      ? parsed.fullName
+      : "";
+
     appState.unlocked = !!parsed.unlocked;
   } catch (error) {
     console.error("Fehler beim Laden des Speicherstands:", error);
   }
 }
+
+
+/* =========================================================
+   HILFSFUNKTIONEN: HTML ESCAPING
+   ========================================================= */
 
 function escapeHtml(value) {
   return String(value)
