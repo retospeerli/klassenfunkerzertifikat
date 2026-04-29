@@ -752,7 +752,7 @@ function exportCertificateToPrint() {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 72mm;
+    top: 64mm;
     width: 80%;
 
     text-align: center;
@@ -774,7 +774,7 @@ function exportCertificateToPrint() {
   .cert-date {
     position: absolute;
     left: 56.3%;
-    top: 169mm;
+    top: 167mm;
     width: 23%;
 
     text-align: left;
